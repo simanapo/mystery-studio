@@ -1,6 +1,34 @@
-  <div class="collection">
-    <a href="#!" class="collection-item">Alan<span class="badge">1</span></a>
-    <a href="#!" class="collection-item">Alan<span class="new badge">4</span></a>
-    <a href="#!" class="collection-item">Alan</a>
-    <a href="#!" class="collection-item">Alan<span class="badge">14</span></a>
-  </div>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Logo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+        <!-- ここに移動 -->
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+
+    <ul id="slide-out" class="sidenav sidenav-fixed">
+      <li><a href="#!">First Sidebar Link<i class="material-icons left">person</i></a></li>
+      <li><a href="#!">Second Sidebar Link<i class="material-icons left">local_post_office</i></a></li>
+
+      <li>
+        <ul class="collapsible">
+          <li>
+            <a class="collapsible-header">Accordion<i class="material-icons chevron right">chevron_left</i></a>
+            <div class="collapsible-body">
+              <ul>
+                <li><a href="#">Dashboard<i class="material-icons">web</i></a></li>
+                <li><a href="#">Fixed Chart<i class="material-icons">list</i></a></li>
+                <li><a href="#">Grid<i class="material-icons">dashboard</i></a></li>
+                <li><a href="#">Chat<i class="material-icons">chat</i></a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
