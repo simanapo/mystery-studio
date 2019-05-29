@@ -5,7 +5,7 @@ class Answer < ApplicationRecord
   ##
   # リレーション
   ##
-
+  belongs_to :lease_company
 
   ##
   # バリデーション

@@ -5,7 +5,7 @@ class Hint < ApplicationRecord
   ##
   # リレーション
   ##
-
+  belongs_to :answer
 
   ##
   # バリデーション
