@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2019052820542303) do
     t.index ["question_id"], name: "index_hints_on_question_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "remarks"
+    t.string "name"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string "title", limit: 2000
     t.string "question_statement", limit: 1000
