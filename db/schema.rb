@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019052820542303) do
     t.string "remarks"
     t.string "name"
     t.string "image"
+    t.integer "challenge_level", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

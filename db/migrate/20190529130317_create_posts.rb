@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :remarks
       t.string :name
       t.string :image
+      t.integer :challenge_level, null: false, default: 1
 
       t.timestamps
     end

@@ -1,12 +1,20 @@
 class PostsController < ApplicationController
   def show
+    @post = Post.new
     @posts = Post.all
   end
 
   def create
+    @posts = Post.all
     @post = Post.new(permit_params)
-    @post.save!
-    redirect_to action: 'show'
+
+    if @post.invalid?
+      render :show
+    else
+      @post.save!
+      redirect_to action: 'show'
+    end
+
   end
 
   private

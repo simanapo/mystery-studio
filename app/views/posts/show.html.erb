@@ -1,14 +1,26 @@
 <% @posts.each do |post| %>
+  <% if post.image.present? %>
   <p>
-    <%= post.name %><br>
-    <%= image_tag post.image.url %>
+    <%= post&.name %><br>
+    <%= image_tag post&.image.url %>
   </p>
 <% end %>
+<% end %>
 <hr>
-<%= form_for :post, url: 'posts/create'  do |f| %>
+<%= form_for :post, url: posts_path, method: :post do |f| %>
   <p><%=f.label "タイトル" %><br><%= f.text_field :title, placeholder: 'タイトル' %></p>
+
+ <p><label><%= f.radio_button :challenge_level, 'basic', checked: true %> 初級 <span>Red</span></label></p>
+ <p><label><%= f.radio_button :challenge_level, 'medium' %> 中級 <span>Red</span></label></p>
+ <p><label><%= f.radio_button :challenge_level, 'advance' %> 上級 <span>Red</span></label></p>
+
   <p><%=f.label "画像名" %><br><%= f.text_field :name, placeholder: '画像名' %></p>
   <p><%=f.label "備考" %><br><%= f.text_field :remarks, placeholder: '備考' %></p>
   <p><%=f.label "画像をアップロード" %><br><%= f.file_field :image %></p>
   <p><%= f.submit value: '投稿' %></p>
+  <% if @post&.errors.present? %>
+    <% @post&.errors&.full_messages&.each do |msg| %>
+      <p><%= msg %></p>
+  <% end %>
+<% end %>
 <% end %>
