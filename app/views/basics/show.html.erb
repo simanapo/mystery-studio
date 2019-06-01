@@ -13,6 +13,14 @@
 
 <%= form_for :post, url: answer_basics_path, method: :post do |f| %>
     <%= hidden_field_tag :display_order, @basic.display_order %>
-  <p><%=f.label "答えを入力(半角)" %><br><%= f.text_field :send_answer %></p>
+  <p><%=f.label @basic.remarks %><br><%= f.text_field :send_answer %></p>
   <button class="btn_search">送信</button>
+<% end %>
+
+<% if @incorrect.present? %>
+  <%= @incorrect %>
+<% end %>
+
+<%= link_to mystery_lists_path, class: 'collection-item' do %>
+  <span class="badge"></span>一覧に戻る
 <% end %>

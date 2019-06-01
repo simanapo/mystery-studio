@@ -1,0 +1,11 @@
+<%= image_tag @basic&.answer_image.url, :height => "200" %>
+
+<%= content_tag :span, @basic&.answer_text %>
+
+<%= link_to basics_path(:display_order => @basic.display_order + 1), class: 'collection-item' do %>
+  <span class="badge"></span>次の問題へ
+<% end %>
+
+<%= link_to mystery_lists_path, class: 'collection-item' do %>
+  <span class="badge"></span>一覧に戻る
+<% end %>

@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root 'matelpage#index'
   # get '/posts', to: 'posts#show'
   # post '/posts/create', to: 'posts#create'
-  get '/lists', to: 'mystery_lists#index'
+  get '/mystery_lists', to: 'mystery_lists#index'
+  # resource :mystery_lists
   resource :posts
   resource :basics, only: [:show] do
     collection do
