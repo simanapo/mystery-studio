@@ -1,7 +1,8 @@
 
   <div class="collection">
-    <a href="#!" class="collection-item"><span class="new badge" data-badge-caption="5問"></span>初級</a>
-    <li><%= link_to '初級', show_basics_path(:order => 1,) %></li>
+    <%= link_to basics_path(:display_order => 1), class: 'collection-item' do %>
+      <span class="new badge" data-badge-caption="5問"></span>初級
+    <% end %>
 
     <a href="#!" class="collection-item">中級</a>
     <a href="#!" class="collection-item">上級</a>
