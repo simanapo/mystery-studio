@@ -1,0 +1,26 @@
+<%= image_tag @basic&.question_image.url, :height => "200" %>
+
+<% if @basic&.hints.count > 0 %>
+  <ul class="collapsible">
+    <% @basic&.hints.each_with_index do |hint, index| %>
+      <li>
+        <div class="collapsible-header"><i class="material-icons"></i>ヒント<%= index + 1 %></div>
+        <div class="collapsible-body"><%= content_tag :span, hint&.hint %></div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for :post, url: answer_basics_path, method: :post do |f| %>
+    <%= hidden_field_tag :display_order, @basic.display_order %>
+  <p><%=f.label @basic.remarks %><br><%= f.text_field :send_answer %></p>
+  <button class="btn_search">送信</button>
+<% end %>
+
+<% if @incorrect.present? %>
+  <%= @incorrect %>
+<% end %>
+
+<%= link_to mystery_lists_path, class: 'collection-item' do %>
+  <span class="badge"></span>一覧に戻る
+<% end %>
