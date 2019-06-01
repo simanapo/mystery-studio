@@ -5,12 +5,14 @@ class Hint < ApplicationRecord
   ##
   # リレーション
   ##
-  belongs_to :answer
+  belongs_to :post, optional: true
 
   ##
   # バリデーション
   ##
-
+  # ヒント
+  validates :hint,
+    length: { maximum: 2000 }
 
   ##
   # scopes

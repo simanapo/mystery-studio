@@ -23,22 +23,27 @@ ActiveRecord::Schema.define(version: 2019052820542303) do
   end
 
   create_table "hints", force: :cascade do |t|
-    t.integer "question_id"
+    t.integer "post_id"
     t.string "hint", limit: 2000
     t.datetime "created_at", null: false
     t.datetime "updated_at"
     t.datetime "deleted_at"
-    t.index ["question_id"], name: "index_hints_on_question_id"
+    t.index ["post_id"], name: "index_hints_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "remarks"
-    t.string "name"
-    t.string "image"
+    t.string "question_text"
+    t.string "answer_text"
+    t.string "answer"
+    t.string "question_image"
+    t.string "answer_image"
     t.integer "challenge_level", default: 1, null: false
+    t.integer "display_order"
     t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
   create_table "questions", force: :cascade do |t|

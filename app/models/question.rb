@@ -5,7 +5,6 @@ class Question < ApplicationRecord
   ##
   # リレーション
   ##
-  has_many :hits
   has_many :answers
 
   ##
