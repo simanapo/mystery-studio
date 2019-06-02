@@ -1,7 +1,7 @@
 class BasicsController < ApplicationController
 
   def show
-    @basic = Post.all.where(challenge_level: 1, display_order: params[:display_order]).first
+    @basic = Post.all.where(challenge_level: params[:challenge_level], display_order: params[:display_order]).first
     if params[:incorrect]
       @incorrect = '解答が違います。'
     end
@@ -12,11 +12,11 @@ class BasicsController < ApplicationController
   end
 
   def answer
-    @basic = Post.all.where(challenge_level: 1, display_order: params[:display_order]).first
+    @basic = Post.all.where(challenge_level: params[:challenge_level], display_order: params[:display_order]).first
     if @basic.answer == permit_answer_params[:send_answer]
       render :answer
     else
-      redirect_to basics_path(display_order: params[:display_order], incorrect: true)
+      redirect_to basics_path(challenge_level: params[:challenge_level], display_order: params[:display_order], incorrect: true)
     end
 
   end
