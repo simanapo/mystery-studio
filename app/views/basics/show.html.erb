@@ -1,10 +1,10 @@
 <main>
   <div class="container">
     <div class="flex">
-      <h2 class="header">謎解き<%= @basic&.challenge_level_i18n %>問題</h2>
+      <h3 class="header">謎解き<%= @basic&.challenge_level_i18n %>問題</h3>
     </div>
-    <h3><%= @basic&.display_order %>問目</h3>
-    <%= image_tag @basic&.question_image.url, :height => "200" %>
+    <h4><%= @basic&.display_order %>問目</h4>
+    <%= image_tag @basic&.question_image.url, :height => "200", :style => "border: 3px #000000 solid;" %>
     <% if @basic&.hints.count > 0 %>
       <ul class="collapsible">
         <% @basic&.hints.each_with_index do |hint, index| %>

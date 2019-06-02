@@ -1,10 +1,10 @@
 <main>
   <div class="container">
     <div class="flex">
-      <h2 class="header">謎解き<%= @basic&.challenge_level_i18n %>問題</h2>
+      <h3 class="header">謎解き<%= @basic&.challenge_level_i18n %>問題</h3>
     </div>
     <h3><%= @basic&.display_order %>問目の答え</h3>
-    <%= image_tag @basic&.answer_image.url, :height => "200" %>
+    <%= image_tag @basic&.answer_image.url, :height => "200", :style => "border: 3px #000000 solid;" %>
 
     <%= content_tag :span, @basic&.answer_text %>
 
