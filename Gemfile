@@ -56,6 +56,20 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Materizalizeデザイン
 gem 'materialize-sass', '~> 1.0.0'
 
+# 画像アップロード
 gem 'carrierwave'
+
+# 論理削除
+gem 'paranoia'
+
+# 関連モデル一括登録
+gem 'nested_form'
+
+# jQuery導入
+gem 'jquery-rails'
+
+# enum日本語化
+gem 'enum_help'

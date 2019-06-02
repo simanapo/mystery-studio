@@ -1,0 +1,37 @@
+<main>
+  <div class="container">
+    <div class="flex">
+      <h2 class="header">謎解き<%= @basic&.challenge_level_i18n %>問題</h2>
+    </div>
+    <h3><%= @basic&.display_order %>問目</h3>
+    <%= image_tag @basic&.question_image.url, :height => "200" %>
+    <% if @basic&.hints.count > 0 %>
+      <ul class="collapsible">
+        <% @basic&.hints.each_with_index do |hint, index| %>
+          <li>
+            <div class="collapsible-header"><i class="material-icons"></i>ヒント<%= index + 1 %></div>
+            <div class="collapsible-body"><%= content_tag :span, hint&.hint %></div>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <%= form_for :post, url: answer_basics_path, method: :post do |f| %>
+      <%= hidden_field_tag :display_order, @basic.display_order %>
+      <%= hidden_field_tag :challenge_level, @basic.challenge_level %>
+      <p><%=f.label @basic.remarks %><br><%= f.text_field :send_answer %></p>
+      <button class="btn waves-effect waves-light" type="submit" name="action">送信
+        <i class="material-icons right">send</i>
+      </button>
+    <% end %>
+
+    <% if @incorrect.present? %>
+      <%= @incorrect %>
+    <% end %>
+  </div>
+</main>
+<script>
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+</script>

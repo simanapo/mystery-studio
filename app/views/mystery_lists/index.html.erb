@@ -1,8 +1,21 @@
+<main>
+  <div class="container">
+    <div class="flex">
+      <h2 class="header">謎解き問題一覧</h2>
+    </div>
 
-  <div class="collection">
-    <a href="#!" class="collection-item"><span class="new badge" data-badge-caption="5問"></span>初級</a>
-    <li><%= link_to '初級', show_basics_path(:order => 1,) %></li>
+    <div class="collection">
+      <%= link_to basics_path(:challenge_level => 1, :display_order => 1), class: 'collection-item' do %>
+        <span class="new badge" data-badge-caption="<%= @basic_count %>問"></span>初級
+      <% end %>
 
-    <a href="#!" class="collection-item">中級</a>
-    <a href="#!" class="collection-item">上級</a>
+      <%= link_to basics_path(:challenge_level => 2, :display_order => 1), class: 'collection-item' do %>
+        <span class="new badge" data-badge-caption="<%= @medium_count %>問"></span>中級
+      <% end %>
+
+      <%= link_to basics_path(:challenge_level => 3, :display_order => 1), class: 'collection-item' do %>
+        <span class="new badge" data-badge-caption="<%= @advance_count %>問"></span>上級
+      <% end %>
+    </div>
   </div>
+</main>

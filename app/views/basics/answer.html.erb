@@ -1,0 +1,14 @@
+<main>
+  <div class="container">
+    <div class="flex">
+      <h2 class="header">謎解き<%= @basic&.challenge_level_i18n %>問題</h2>
+    </div>
+    <h3><%= @basic&.display_order %>問目の答え</h3>
+    <%= image_tag @basic&.answer_image.url, :height => "200" %>
+
+    <%= content_tag :span, @basic&.answer_text %>
+
+    <%= link_to '前の問題へ', basics_path(:challenge_level => @basic.challenge_level, :display_order => @basic.display_order), class: 'waves-effect waves-light btn' %>
+    <%= link_to '次の問題へ', basics_path(:challenge_level => @basic.challenge_level, :display_order => @basic.display_order + 1), class: 'waves-effect waves-light btn' %>
+  </div>
+</main>
