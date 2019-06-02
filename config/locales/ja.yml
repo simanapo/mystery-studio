@@ -1,0 +1,7 @@
+ja:
+  enums:
+    post:
+      challenge_level:
+        basic: 初級
+        medium: 中級
+        advance: 上級
