@@ -28,6 +28,8 @@
     <% if @incorrect.present? %>
       <%= @incorrect %>
     <% end %>
+    <br>
+    <%= link_to '一覧に戻る', mystery_lists_path, class: 'waves-effect waves-light btn' %>
   </div>
 </main>
 <script>
