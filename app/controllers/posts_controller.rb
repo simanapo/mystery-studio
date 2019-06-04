@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:update, :destroy]
+  before_action :basic
 
   def show
     @post = Post.new
@@ -50,5 +51,11 @@ class PostsController < ApplicationController
 
     def set_post
       @post = ::Post.find(permit_params[:id])
+    end
+
+    def basic
+      authenticate_or_request_with_http_basic do |name, password|
+        name == 'test' && password == '1234'
+      end
     end
 end
