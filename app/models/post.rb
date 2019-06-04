@@ -75,4 +75,36 @@ class Post < ApplicationRecord
   # ヒント(外部)
   scope :with_hints, -> { eager_load(:hints) }
 
+  scope :display_order_is, -> (value) { where(display_order: value) }
+
+  scope :challenge_level_is, -> (value) { where(challenge_level: value) }
+
+  scope :id_is_not, -> (value) { where.not(id: value) }
+
+  ##
+  # methods
+  ##
+  # 表示順チェック(難易度別)
+  # @param  [integer] challenge_level 難易度別
+  # @param  [string]  display_order 表示順
+  # @return [Boolean] 重複しているか？
+  def self.display_order_duplicated?(challenge_level, display_order)
+    !Post.challenge_level_is(challenge_level).display_order_is(display_order).blank?
+  end
+
+  # 表示順チェック(難易度別)
+  # @param  [integer] challenge_level 難易度別
+  # @param  [string]  display_order 表示順
+  # @return [Boolean] 重複しているか？
+  def self.display_order_duplicated_for_edit?(id, challenge_level, display_order)
+    !Post.id_is_not(id).challenge_level_is(challenge_level).display_order_is(display_order).blank?
+  end
+
+  # 削除済みチェック
+  # @param [LeaseCompany] post 謎解き問題
+  # @return [Boolean] 削除されている : true 削除されていない : false
+  def self.already_deleted?(post)
+    ! Post.exists?(id: post.id)
+  end
+
 end
