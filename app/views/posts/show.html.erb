@@ -40,6 +40,7 @@
   <% @posts.each do |post| %>
     <%= nested_form_for post, url: posts_path(0), method: :put do |f| %>
       <%= f.hidden_field :id %>
+      <%= f.hidden_field :updated_at %>
       <%= image_tag post&.question_image.url, :height => "200" %>
       <%= image_tag post&.answer_image.url, :height => "200" %>
       <p><%=f.label "タイトル" %><span style="color: red;">*</span><br><%= f.text_field :title, placeholder: 'タイトル' %></p>

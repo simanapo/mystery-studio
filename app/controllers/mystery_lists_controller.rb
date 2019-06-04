@@ -1,12 +1,12 @@
 class MysteryListsController < ApplicationController
 
   def index
-    @basics = Post.all.where(challenge_level: 1)
-    @mediums = Post.all.where(challenge_level: 2)
-    @advances = Post.all.where(challenge_level: 3)
-    @basic_count = Post.all.where(challenge_level: 1).count
-    @medium_count = Post.all.where(challenge_level: 2).count
-    @advance_count = Post.all.where(challenge_level: 3).count
+    @basics = Post.all.where(challenge_level: ::Post.challenge_levels[:basic])
+    @mediums = Post.all.where(challenge_level: ::Post.challenge_levels[:medium])
+    @advances = Post.all.where(challenge_level: ::Post.challenge_levels[:advance])
+    @basic_count = Post.all.where(challenge_level: ::Post.challenge_levels[:basic]).count
+    @medium_count = Post.all.where(challenge_level: ::Post.challenge_levels[:medium]).count
+    @advance_count = Post.all.where(challenge_level: ::Post.challenge_levels[:advance]).count
   end
 
 end
