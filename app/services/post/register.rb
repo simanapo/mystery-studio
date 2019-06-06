@@ -11,7 +11,7 @@ class Post::Register
   # @param [Hash] post 入力データ（謎解き問題モデル）
   # @return [Object] 謎解き問題のオブジェクト
   # @raise [ActiveRecord::StatementInvalid] DBアクセス時に何らかのエラー
-  # @raise [ValidationError] バリデーションエラー
+  # @raise [DuplicatedError] 重複エラー
   def insert(post)
     ActiveRecord::Base.transaction do
       fail DuplicatedError if Post.display_order_duplicated?(post[:challenge_level], post[:display_order])
@@ -26,7 +26,7 @@ class Post::Register
   # @option post [DateTime] :updated_at 更新日時
   # @return [Object] 謎解き問題のオブジェクト
   # @raise [ActiveRecord::StatementInvalid] DBアクセス時に何らかのエラー
-  # @raise [ValidationError] バリデーションエラー
+  # @raise [DuplicatedError] 重複エラー
   # @raise [AlreadyUpdated] 更新されていた
   def update(post, id)
     ActiveRecord::Base.transaction do
