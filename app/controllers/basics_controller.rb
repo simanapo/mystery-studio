@@ -1,5 +1,6 @@
 class BasicsController < ApplicationController
 
+  # 謎解き問題詳細
   def show
     @basic = Post.all.where(challenge_level: params[:challenge_level], display_order: params[:display_order]).first
     if params[:incorrect]
@@ -11,6 +12,7 @@ class BasicsController < ApplicationController
     end
   end
 
+  # 謎解き問題解答
   def answer
     @basic = Post.all.where(challenge_level: params[:challenge_level], display_order: params[:display_order]).first
     if @basic.answer == permit_answer_params[:send_answer]
