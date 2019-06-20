@@ -48,7 +48,7 @@ class PostsController < ApplicationController
 
   private
     def permit_params
-      params.require(:post).permit(:id, :title, :remarks, :question_text, :answer_text,
+      params.require(:post).permit(:id, :user_id, :title, :remarks, :question_text, :answer_text,
         :answer, :question_image, :answer_image, :challenge_level, :display_order, :updated_at,
         hints_attributes: [:id, :post_id, :hint, :_destroy])
     end

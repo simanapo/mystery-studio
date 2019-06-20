@@ -27,6 +27,10 @@ class Post < ApplicationRecord
   ##
   # バリデーション
   ##
+  # ユーザID
+  validates :user_id,
+    presence: true
+
   # 問題画像
   validates :question_image,
     presence: true

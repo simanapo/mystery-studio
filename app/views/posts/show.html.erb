@@ -9,6 +9,7 @@
   <hr>
   <hr>
   <%= nested_form_for @post, url: posts_path, method: :post do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <p><%=f.label "タイトル" %><span style="color: red;">*</span><br><%= f.text_field :title, placeholder: 'タイトル' %></p>
     <p><label><%= f.radio_button :challenge_level, 'basic', checked: true %><span>初級</span></label></p>
     <p><label><%= f.radio_button :challenge_level, 'medium' %><span>中級</span></label></p>
@@ -40,6 +41,7 @@
   <% @posts.each do |post| %>
     <%= nested_form_for post, url: posts_path(0), method: :put do |f| %>
       <%= f.hidden_field :id %>
+      <%= f.hidden_field :user_id %>
       <%= f.hidden_field :updated_at %>
       <%= image_tag post&.question_image.url, :height => "200" %>
       <%= image_tag post&.answer_image.url, :height => "200" %>
