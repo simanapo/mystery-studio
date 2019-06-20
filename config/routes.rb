@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'matelpage/index' => 'matelpage#index'
-  root 'matelpage#index'
+  devise_for :users
+  root 'logins#index'
+  # get 'matelpage/index' => 'matelpage#index'
+  # root 'matelpage#index'
   # get '/posts', to: 'posts#show'
   # post '/posts/create', to: 'posts#create'
   get '/mystery_lists', to: 'mystery_lists#index'
