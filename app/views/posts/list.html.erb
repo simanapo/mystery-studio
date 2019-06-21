@@ -1,40 +1,7 @@
-
 <div class="container">
   <div class="flex">
-    <h3 class="header">謎解き問題登録・更新・削除</h3>
+    <h3 class="header">謎解き問題一覧</h3>
   </div>
-  <hr>
-  <hr>
-  <div>新規登録</div>
-  <hr>
-  <hr>
-  <%= nested_form_for @post, url: posts_path, method: :post do |f| %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <p><%=f.label "タイトル" %><span style="color: red;">*</span><br><%= f.text_field :title, placeholder: 'タイトル' %></p>
-    <p><label><%= f.radio_button :challenge_level, 'basic', checked: true %><span>初級</span></label></p>
-    <p><label><%= f.radio_button :challenge_level, 'medium' %><span>中級</span></label></p>
-    <p><label><%= f.radio_button :challenge_level, 'advance' %><span>上級</span></label></p>
-    <p><%=f.label "問題文" %><br><%= f.text_field :question_text, placeholder: '問題文' %></p>
-    <p><%=f.label "解答文" %><br><%= f.text_field :answer_text, placeholder: '解答文' %></p>
-    <p><%=f.label "解答" %><br><span style="color: red;">*</span><%= f.text_field :answer, placeholder: '解答' %></p>
-    <p><%=f.label "備考" %><br><%= f.text_field :remarks, placeholder: '備考' %></p>
-    <p><%=f.label "表示順" %><br><span style="color: red;">*</span><%= f.number_field :display_order, placeholder: '表示順' %></p>
-    <p><%=f.label "問題画像をアップロード" %><span style="color: red;">*</span><br><%= f.file_field :question_image %></p>
-    <p><%=f.label "解答画像をアップロード" %><span style="color: red;">*</span><br><%= f.file_field :answer_image %></p>
-    <%= f.fields_for :hints do |hint| %>
-      <p><%= hint.label "ヒント" %><br><%= hint.text_field :hint, placeholder: 'ヒント' %></p>
-      <%= hint.link_to_remove "ヒント削除" %>
-    <% end %>
-    <%= f.link_to_add 'ヒント追加', :hints %>
-    <p><%= f.submit value: '登録' %></p>
-    <% if @post&.errors.present? %>
-      <% @post&.errors&.full_messages&.each do |msg| %>
-        <p><%= msg %></p>
-      <% end %>
-    <% end %>
-  <% end %>
-  <hr>
-  <hr>
   <div>編集</div>
   <hr>
   <hr>
@@ -53,7 +20,7 @@
       <p><%=f.label "解答文" %><br><%= f.text_field :answer_text, placeholder: '解答文' %></p>
       <p><%=f.label "解答" %><br><span style="color: red;">*</span><%= f.text_field :answer, placeholder: '解答' %></p>
       <p><%=f.label "備考" %><br><%= f.text_field :remarks, placeholder: '備考' %></p>
-      <p><%=f.label "表示順" %><span style="color: red;">*</span><br><%= f.number_field :display_order, placeholder: '表示順' %></p>
+      <p><%=f.label "表示順" %><br><%= f.number_field :display_order, placeholder: '表示順' %></p>
       <p><%=f.label "問題画像をアップロード" %><span style="color: red;">*</span><br><%= f.file_field :question_image %></p>
       <p><%=f.label "解答画像をアップロード" %><span style="color: red;">*</span><br><%= f.file_field :answer_image %></p>
       <%= f.fields_for :hints do |hint| %>

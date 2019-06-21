@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   # post '/posts/create', to: 'posts#create'
   get '/mystery_lists', to: 'mystery_lists#index'
   # resource :mystery_lists
-  resource :posts
+  resource :posts do
+    collection do
+      get :list
+    end
+  end
   resource :basics, only: [:show] do
     collection do
       post :answer

@@ -27,6 +27,10 @@ class Post < ApplicationRecord
   ##
   # バリデーション
   ##
+  # ユーザID
+  validates :user_id,
+    presence: true
+
   # 問題画像
   validates :question_image,
     presence: true
@@ -62,9 +66,9 @@ class Post < ApplicationRecord
     presence: true
 
   # 表示順
-  validates :display_order,
-    presence: true,
-    numericality: true
+  # validates :display_order,
+  #   presence: true,
+  #   numericality: true
 
   ##
   # scopes
@@ -80,6 +84,8 @@ class Post < ApplicationRecord
   scope :challenge_level_is, -> (value) { where(challenge_level: value) }
 
   scope :id_is_not, -> (value) { where.not(id: value) }
+
+  scope :user_id_is, -> (value) { where(user_id: value) }
 
   ##
   # methods
