@@ -14,7 +14,7 @@ class Post::Register
   # @raise [DuplicatedError] 重複エラー
   def insert(post)
     ActiveRecord::Base.transaction do
-      fail DuplicatedError if Post.display_order_duplicated?(post[:challenge_level], post[:display_order])
+      # fail DuplicatedError if Post.display_order_duplicated?(post[:challenge_level], post[:display_order])
       post.save!
       post
     end
@@ -31,7 +31,7 @@ class Post::Register
   def update(post, id)
     ActiveRecord::Base.transaction do
       @post.lock!
-      fail DuplicatedError if Post.display_order_duplicated_for_edit?(id, post[:challenge_level], post[:display_order])
+      # fail DuplicatedError if Post.display_order_duplicated_for_edit?(id, post[:challenge_level], post[:display_order])
       fail AlreadyUpdated if @post.updated_at != post[:updated_at]
       @post.update! post
       @post

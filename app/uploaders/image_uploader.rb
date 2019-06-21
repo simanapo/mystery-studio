@@ -13,8 +13,14 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  # アップロードできるサイズを制限
   def size_range
     1..10.megabytes
+  end
+
+  # アップロードできる拡張子を制限
+  def extension_whitelist
+    %w(jpg jpeg png)
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
