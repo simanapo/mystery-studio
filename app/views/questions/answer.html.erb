@@ -1,0 +1,11 @@
+<main>
+  <div class="container">
+    <div class="flex">
+      <h3 class="header">答え</h3>
+    </div>
+    <%= image_tag @post&.answer_image.url, :height => "200", :style => "border: 3px #000000 solid;" %>
+
+    <%= content_tag :span, @post&.answer_text %>
+
+  </div>
+</main>

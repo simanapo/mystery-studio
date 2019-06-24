@@ -32,7 +32,7 @@ class Post::Register
     ActiveRecord::Base.transaction do
       @post.lock!
       # fail DuplicatedError if Post.display_order_duplicated_for_edit?(id, post[:challenge_level], post[:display_order])
-      fail AlreadyUpdated if @post.updated_at != post[:updated_at]
+      fail AlreadyUpdated if ::Post.already_updated?(post[:updated_at], @post)
       @post.update! post
       @post
     end
