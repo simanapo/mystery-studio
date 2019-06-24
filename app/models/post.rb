@@ -113,4 +113,13 @@ class Post < ApplicationRecord
     ! Post.exists?(id: post.id)
   end
 
+  # 更新済みチェック
+  # @param [String] updated_at 更新前更新日時
+  # @param [post] post 謎解き問題
+  # @return [Boolean] 更新されている : true 更新されていない : false
+  def self.already_updated?(updated_at, post)
+    post_updated_at = post&.updated_at&.to_s || ''
+    updated_at != post_updated_at
+  end
+
 end

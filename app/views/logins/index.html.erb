@@ -11,3 +11,11 @@
   <%= link_to 'ユーザー登録', new_user_registration_path %>
   <%= link_to 'ログイン', new_user_session_path %>
 <% end %>
+
+<% @posts.each do |post| %>
+  <p><%= post.title %></p>
+  <%= image_tag post&.question_image.url, :height => "200", :style => "border: 3px #000000 solid;" %>
+  <%= link_to questions_path(id: post.id) do %>
+    詳細を見る
+  <% end %>
+<% end %>

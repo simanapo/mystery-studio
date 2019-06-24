@@ -6,42 +6,42 @@
 
       <h4 class="header">【難易度別】初級・中級・上級</h4>
       <ul class="collapsible">
-          <li>
-            <div class="collapsible-header">
-              <i class="material-icons"></i>初級<span class="new badge" data-badge-caption="<%= @basic_count %>問"></span>
-            </div>
-            <% @basics.each_with_index do |basic, index| %>
-            <div class="collapsible-body">
-              <%= link_to basics_path(:challenge_level => 1, :display_order => 1), class: 'collection-item' do %>
-                <%= index + 1 %>問目
-              <% end %>
-              </div>
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons"></i>初級<span class="new badge" data-badge-caption="<%= @basic_count %>問"></span>
+          </div>
+          <% @basics.each_with_index do |basic, index| %>
+          <div class="collapsible-body">
+            <%= link_to basics_path(:challenge_level => 1, :display_order => 1), class: 'collection-item' do %>
+              <%= index + 1 %>問目
             <% end %>
-          </li>
-          <li>
-            <div class="collapsible-header">
-              <i class="material-icons"></i>中級<span class="new badge" data-badge-caption="<%= @medium_count %>問"></span>
             </div>
-            <% @mediums.each_with_index do |medium, index| %>
-            <div class="collapsible-body">
-              <%= link_to basics_path(:challenge_level => 2, :display_order => medium.display_order), class: 'collection-item' do %>
-                <%= index + 1 %>問目
-              <% end %>
-              </div>
+          <% end %>
+        </li>
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons"></i>中級<span class="new badge" data-badge-caption="<%= @medium_count %>問"></span>
+          </div>
+          <% @mediums.each_with_index do |medium, index| %>
+          <div class="collapsible-body">
+            <%= link_to basics_path(:challenge_level => 2, :display_order => medium.display_order), class: 'collection-item' do %>
+              <%= index + 1 %>問目
             <% end %>
-          </li>
-          <li>
-            <div class="collapsible-header">
-              <i class="material-icons"></i>上級<span class="new badge" data-badge-caption="<%= @advance_count %>問"></span>
             </div>
-            <% @advances.each_with_index do |advance, index| %>
-            <div class="collapsible-body">
-              <%= link_to basics_path(:challenge_level => 3, :display_order => 1), class: 'collection-item' do %>
-                <%= index + 1 %>問目
-              <% end %>
-              </div>
+          <% end %>
+        </li>
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons"></i>上級<span class="new badge" data-badge-caption="<%= @advance_count %>問"></span>
+          </div>
+          <% @advances.each_with_index do |advance, index| %>
+          <div class="collapsible-body">
+            <%= link_to basics_path(:challenge_level => 3, :display_order => 1), class: 'collection-item' do %>
+              <%= index + 1 %>問目
             <% end %>
-          </li>
+            </div>
+          <% end %>
+        </li>
       </ul>
       <%
 =begin%>
