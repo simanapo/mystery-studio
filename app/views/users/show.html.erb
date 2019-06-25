@@ -1,0 +1,9 @@
+<%= @user.username %>さんの投稿
+
+<% @user.posts.each do |post| %>
+  <p><%= post.title %></p>
+  <%= image_tag post&.question_image.url, :height => "200", :style => "border: 3px #000000 solid;" %>
+  <%= link_to questions_path(id: post.id) do %>
+    詳細を見る
+  <% end %>
+<% end %>

@@ -11,6 +11,7 @@ class Post < ApplicationRecord
   has_many :hints
   accepts_nested_attributes_for :hints, allow_destroy: true
 
+  belongs_to :user, optional: true
   ##
   # enum
   ##

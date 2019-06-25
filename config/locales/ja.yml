@@ -1,4 +1,11 @@
 ja:
+  activerecord:
+    attributes:
+      user:
+        username: ニックネーム
+        password: パスワード
+        password_confirmation: パスワード確認
+        email: メールアドレス
   enums:
     post:
       challenge_level:

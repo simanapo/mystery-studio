@@ -48,7 +48,7 @@ class PostsController < ApplicationController
 
   def list
     @post = Post.new
-    @posts = Post.user_id_is(current_user.id)
+    @posts = Post.user_id_is(current_user.id).with_hints
     @post.hints.build
   end
 

@@ -2,8 +2,6 @@ class QuestionsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    Rails.logger.info(@post.inspect)
-Rails.logger.info("--------------------post------------------------")
     if params[:incorrect]
       @incorrect = '解答が違います。'
     end
