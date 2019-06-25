@@ -1,0 +1,7 @@
+  <% @users.each do |user| %>
+    <%= user.id %>
+    <%= user.username %>
+    <%= link_to users_path(id: user.id), class: 'collection-item' do %>
+      <%= user.username %>さんの投稿一覧
+    <% end %>
+  <% end %>
